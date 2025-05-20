@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Login</title>
+    <link rel="stylesheet" href="login2.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="login-wrapper">
+      <form class="login-form" id="loginForm" autocomplete="off">
+        <div class="logo">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" fill="#8EC5FC" />
+            <path
+              d="M8 15L12 11L16 15"
+              stroke="#fff"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+        <h2>Sign In</h2>
+        <div class="input-group">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            placeholder="Username"
+            autocomplete="off"
+          />
+          <span class="input-icon user-icon"></span>
+          <div class="input-underline"></div>
+        </div>
+        <div class="input-group">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder="Password"
+            autocomplete="off"
+          />
+          <span class="input-icon pass-icon"></span>
+          <span class="toggle-password" id="togglePassword"></span>
+          <div class="input-underline"></div>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+        <p class="error-message" id="errorMessage"></p>
+        <div class="extra-actions">
+          <a href="#" id="forgotPassword">Forgot password?</a>
+          <a href="#" id="showRegister">Create account</a>
+        </div>
+      </form>
+      <form
+        class="register-form"
+        id="registerForm"
+        autocomplete="off"
+        style="display: none"
+      >
+        <div class="logo">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" fill="#8EC5FC" />
+            <path
+              d="M8 15L12 11L16 15"
+              stroke="#fff"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+        <h2>Register</h2>
+        <div class="input-group">
+          <input
+            type="text"
+            id="regUsername"
+            name="regUsername"
+            required
+            placeholder="Username"
+            autocomplete="off"
+          />
+          <span class="input-icon user-icon"></span>
+          <div class="input-underline"></div>
+        </div>
+        <div class="input-group">
+          <input
+            type="email"
+            id="regEmail"
+            name="regEmail"
+            required
+            placeholder="Email"
+            autocomplete="off"
+          />
+          <span class="input-icon email-icon"></span>
+          <div class="input-underline"></div>
+        </div>
+        <div class="input-group">
+          <input
+            type="password"
+            id="regPassword"
+            name="regPassword"
+            required
+            placeholder="Password"
+            autocomplete="off"
+          />
+          <span class="input-icon pass-icon"></span>
+          <span class="toggle-password" id="toggleRegPassword"></span>
+          <div class="input-underline"></div>
+        </div>
+        <button type="submit" class="login-btn">Register</button>
+        <p class="error-message" id="registerError"></p>
+        <div class="extra-actions">
+          <a href="#" id="showLogin">Back to login</a>
+        </div>
+      </form>
+      <div class="modal" id="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <h3>Password Recovery</h3>
+          <p>We have sent a recovery link to your email (demo only).</p>
+        </div>
+      </div>
+    </div>
+    <script src="login2.js"></script>
+  </body>
+</html>

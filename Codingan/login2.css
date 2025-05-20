@@ -1,0 +1,257 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+  background: #ece9f7;
+}
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%);
+  filter: blur(1px) brightness(0.98);
+  z-index: 0;
+}
+
+.login-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.login-form,
+.register-form {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border-radius: 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  padding: 2.7rem 2.5rem 2rem 2.5rem;
+  min-width: 350px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: popin 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes popin {
+  0% {
+    transform: translate(-50%, -60%) scale(0.93);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.logo {
+  margin-bottom: 12px;
+}
+
+.login-form h2,
+.register-form h2 {
+  margin-bottom: 27px;
+  color: #2d3958;
+  font-size: 2.1rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.85rem 2.5rem 0.85rem 2.4rem;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.75);
+  font-size: 1.07rem;
+  color: #292d36;
+  box-shadow: 0 1px 6px 0 rgba(140, 160, 255, 0.09);
+  transition: box-shadow 0.3s, background 0.2s;
+  outline: none;
+  border-bottom: 2.5px solid transparent;
+}
+
+.input-group input:focus {
+  background: #fafdff;
+  box-shadow: 0 2px 10px 0 rgba(140, 160, 255, 0.14);
+  border-bottom: 2.5px solid #000000;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 1.25em;
+  width: 1.25em;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.user-icon::before {
+  content: "";
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-5 0-8 2.5-8 4v2h16v-2c0-1.5-3-4-8-4z"/></svg>')
+    no-repeat center/contain;
+}
+.pass-icon::before {
+  content: "";
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="6"/><circle cx="12" cy="12" r="3"/></svg>')
+    no-repeat center/contain;
+}
+.email-icon::before {
+  content: "";
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><polyline points="2,5 12,14 22,5"/></svg>')
+    no-repeat center/contain;
+}
+
+.input-underline {
+  position: absolute;
+  bottom: 0.2rem;
+  left: 2.2rem;
+  right: 1rem;
+  height: 2px;
+  background: linear-gradient(90deg, #8ec5fc 0%, #e0c3fc 100%);
+  opacity: 0;
+  transition: opacity 0.24s;
+  border-radius: 1.5px;
+  pointer-events: none;
+}
+.input-group input:focus ~ .input-underline {
+  opacity: 1;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.3em;
+  height: 1.3em;
+  cursor: pointer;
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>')
+    no-repeat center/contain;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.toggle-password.active {
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.94 17.94A10.92 10.92 0 0 1 12 19c-7 0-11-7-11-7a21.49 21.49 0 0 1 5.06-5.94"/><path d="M1 1l22 22"/></svg>')
+    no-repeat center/contain;
+  opacity: 1;
+}
+
+.login-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #8ec5fc 0%, #e0c3fc 100%);
+  border: none;
+  border-radius: 10px;
+  padding: 0.85rem 0;
+  margin-top: 7px;
+  font-size: 1.16rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(140, 160, 255, 0.13);
+  transition: background 0.18s, transform 0.16s;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+  background: linear-gradient(90deg, #6db6f7 0%, #ca94fa 100%);
+  transform: translateY(-2px) scale(1.025);
+}
+
+.error-message {
+  min-height: 1.5em;
+  margin-top: 0.7rem;
+  color: #e63946;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.1px;
+  transition: color 0.2s;
+}
+
+.extra-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 0.96rem;
+}
+
+.extra-actions a {
+  color: #6db6f7;
+  text-decoration: none;
+  transition: color 0.18s;
+  font-weight: 500;
+}
+
+.extra-actions a:hover {
+  color: #2d3958;
+  text-decoration: underline;
+}
+
+.modal {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(52, 58, 64, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #fff;
+  padding: 1.6rem 2.2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 30px 0 rgba(31, 38, 135, 0.18);
+  text-align: center;
+  position: relative;
+  animation: popin 0.5s;
+}
+.close {
+  position: absolute;
+  right: 1.1rem;
+  top: 0.7rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #e63946;
+}
+
+@media (max-width: 450px) {
+  .login-form,
+  .register-form {
+    padding: 1.2rem 1rem;
+    min-width: 0;
+  }
+}
