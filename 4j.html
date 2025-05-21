@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .Shadow {
+        background-color: rgb(0, 78, 26);
+        border: none;
+        color: white;
+        font-size: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        margin: 5px;
+        transition: all 0.3s ease;
+      }
+      .Shadow:hover {
+        background-color: rgb(0, 118, 0);
+        opacity: 0.8;
+        box-shadow: 10px 10px 5px #000000;
+      }
+      .Shadow:active {
+        background-color: rgb(0, 118, 0);
+        opacity: 0.8;
+        box-shadow: 5px 5px 5px #000000;
+      }
+    </style>
+    <button class="Shadow">Shadow</button>
+  </body>
+</html>
