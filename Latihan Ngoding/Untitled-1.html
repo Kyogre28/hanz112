@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfect Login Interface</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: "Montserrat", Arial, sans-serif;
+        background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+      .background-anim {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .circle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.14;
+        animation: floaty 9s linear infinite;
+      }
+      .circle1 {
+        width: 380px;
+        height: 380px;
+        left: 10vw;
+        top: 12vh;
+        background: #e0c3fc;
+        animation-delay: 0s;
+      }
+      .circle2 {
+        width: 270px;
+        height: 270px;
+        right: 8vw;
+        top: 8vh;
+        background: #8ec5fc;
+        animation-delay: 2s;
+      }
+      .circle3 {
+        width: 190px;
+        height: 190px;
+        left: 45vw;
+        bottom: 10vh;
+        background: #f8bbd0;
+        animation-delay: 4s;
+      }
+      .circle4 {
+        width: 120px;
+        height: 120px;
+        right: 17vw;
+        bottom: 15vh;
+        background: #b2dfdb;
+        animation-delay: 6s;
+      }
+      @keyframes floaty {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-30px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .login-container {
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.21);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        border-radius: 22px;
+        border: 1.5px solid rgba(255, 255, 255, 0.26);
+        padding: 3rem 2.5rem 2.2rem 2.5rem;
+        min-width: 350px;
+        max-width: 92vw;
+        width: 370px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: popin 1.1s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      @keyframes popin {
+        0% {
+          transform: scale(0.92);
+          opacity: 0;
+        }
+        60% {
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .login-logo {
+        margin-bottom: 12px;
+      }
+      .login-logo svg {
+        width: 56px;
+        height: 56px;
+        display: block;
+        margin: 0 auto;
+        filter: drop-shadow(0 2px 12px #8ec5fc66);
+      }
+      .login-container h2 {
+        font-family: "Pacifico", cursive;
+        color: #7d5fff;
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+        font-weight: 700;
+        text-shadow: 0 2px 12px #e0c3fc33;
+      }
+      .input-group {
+        width: 100%;
+        margin-bottom: 1.4rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      .input-group input {
+        width: 100%;
+        padding: 0.95rem 2.4rem 0.95rem 2.4rem;
+        border-radius: 12px;
+        border: none;
+        background: rgba(255, 255, 255, 0.7);
+        font-size: 1.09rem;
+        color: #292d36;
+        box-shadow: 0 1px 10px 0 rgba(140, 160, 255, 0.11);
+        outline: none;
+        border-bottom: 2.7px solid transparent;
+        transition: border 0.3s, box-shadow 0.3s, background 0.2s;
+        font-family: inherit;
+      }
+      .input-group input:focus {
+        background: #fafdff;
+        box-shadow: 0 2px 14px 0 rgba(140, 160, 255, 0.19);
+        border-bottom: 2.7px solid #8ec5fc;
+      }
+      .input-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1.4em;
+        width: 1.4em;
+        opacity: 0.6;
+        pointer-events: none;
+      }
+      .input-icon.user::before {
+        content: "";
+        display: inline-block;
+        width: 1.4em;
+        height: 1.4em;
+        background: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-5 0-8 2.5-8 4v2h16v-2c0-1.5-3-4-8-4z"/></svg>')
+          no-repeat center/contain;
+      }
+      .input-icon.lock::before {
+        content: "";
+        display: inline-block;
+        width: 1.4em;
+        height: 1.4em;
+        background: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="7" y="11" width="10" height="9" rx="2"/><path d="M12 15v2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>')
+          no-repeat center/contain;
+      }
+      .toggle-password {
+        position: absolute;
+        right: 1.1em;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1.6em;
+        height: 1.6em;
+        cursor: pointer;
+        background: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>')
+          no-repeat center/contain;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+      }
+      .toggle-password.active {
+        background: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.94 17.94A10.92 10.92 0 0 1 12 19c-7 0-11-7-11-7a21.49 21.49 0 0 1 5.06-5.94"/><path d="M1 1l22 22"/></svg>')
+          no-repeat center/contain;
+        opacity: 1;
+      }
+
+      .login-btn {
+        width: 100%;
+        background: linear-gradient(90deg, #8ec5fc 0%, #e0c3fc 100%);
+        border: none;
+        border-radius: 12px;
+        padding: 0.95rem 0;
+        margin-top: 7px;
+        font-size: 1.17rem;
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: 0.7px;
+        cursor: pointer;
+        box-shadow: 0 2px 12px 0 rgba(140, 160, 255, 0.15);
+        transition: background 0.18s, transform 0.15s;
+      }
+      .login-btn:hover,
+      .login-btn:focus {
+        background: linear-gradient(90deg, #6db6f7 0%, #ca94fa 100%);
+        transform: translateY(-2px) scale(1.035);
+      }
+      .error-message {
+        min-height: 1.5em;
+        margin-top: 0.85rem;
+        color: #e63946;
+        font-weight: 600;
+        font-size: 1rem;
+        text-align: center;
+        letter-spacing: 0.1px;
+        transition: color 0.2s;
+      }
+      .success-message {
+        min-height: 1.5em;
+        margin-top: 0.85rem;
+        color: #27ae60;
+        font-weight: 600;
+        font-size: 1rem;
+        text-align: center;
+        letter-spacing: 0.1px;
+        transition: color 0.2s;
+      }
+      .forgot {
+        width: 100%;
+        text-align: right;
+        margin-top: -1rem;
+        margin-bottom: 1.2rem;
+      }
+      .forgot a {
+        text-decoration: none;
+        color: #7d5fff;
+        font-size: 0.98rem;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+      }
+      .forgot a:hover {
+        opacity: 1;
+        text-decoration: underline;
+      }
+
+      @media (max-width: 450px) {
+        .login-container {
+          padding: 1.2rem 0.7rem;
+          min-width: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-anim">
+      <div class="circle circle1"></div>
+      <div class="circle circle2"></div>
+      <div class="circle circle3"></div>
+      <div class="circle circle4"></div>
+    </div>
+    <div class="login-container">
+      <div class="login-logo">
+        <svg viewBox="0 0 50 50">
+          <defs>
+            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8EC5FC" />
+              <stop offset="100%" stop-color="#E0C3FC" />
+            </linearGradient>
+          </defs>
+          <circle cx="25" cy="25" r="22" fill="url(#g1)" />
+          <path
+            d="M17 30L25 22L33 30"
+            stroke="#fff"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+      <h2>Welcome Back!</h2>
+      <form id="loginForm" autocomplete="off">
+        <div class="input-group">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            placeholder="Username"
+          />
+          <span class="input-icon user"></span>
+        </div>
+        <div class="input-group">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder="Password"
+          />
+          <span class="input-icon lock"></span>
+          <span class="toggle-password" id="togglePassword"></span>
+        </div>
+        <div class="forgot">
+          <a href="#" id="forgotLink">Forgot Password?</a>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+      </form>
+    </div>
+    <script>
+      // Show/hide password
+      const togglePassword = document.getElementById("togglePassword");
+      const passwordInput = document.getElementById("password");
+      if (togglePassword && passwordInput) {
+        togglePassword.onclick = function () {
+          if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePassword.classList.add("active");
+          } else {
+            passwordInput.type = "password";
+            togglePassword.classList.remove("active");
+          }
+        };
+      }
+
+      // Demo login logic
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value;
+          const errorMsg = document.getElementById("errorMessage");
+          const successMsg = document.getElementById("successMessage");
+          errorMsg.textContent = "";
+          successMsg.textContent = "";
+          if (username === "admin" && password === "password") {
+            successMsg.textContent = "Login successful! Welcome back 💙";
+            setTimeout(() => {
+              successMsg.textContent = "";
+              // window.location.href = "dashboard.html";
+            }, 1800);
+          } else {
+            errorMsg.textContent = "Invalid username or password.";
+          }
+        });
+
+      // Forgot password demo
+      document.getElementById("forgotLink").onclick = function (e) {
+        e.preventDefault();
+        alert("For this demo: Username: admin, Password: password");
+      };
+    </script>
+  </body>
+</html>
