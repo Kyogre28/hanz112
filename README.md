@@ -1,4 +1,4 @@
-- 👋 Hi, I’m Raihan ALthaf Ahmadi
+- 👋 Hi, I’m Raihan 
 - 👀 I’m interested in Full stack
 - 🌱 I’m currently learning html, css, java, java script, python
 - 💞️ I’m looking to collaborate on ...
