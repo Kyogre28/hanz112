@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Practice</title>
+</head>
+<style>
+.grid-container {
+    display: grid;
+    gap: 10px;
+    grid-template-rows: auto auto;
+}
+</style>
+
+<body>
+<div class="grid-container" >
+    <div style="display: grid; grid-template-columns: 200px 75px;">
+        <div style="background-color: lightblue;">Div 1</div>
+        <div style="background-color: lightpink;">Div 2</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 50px 1fr 75px;">
+        <div style="background-color: lightblue;">Div 1</div>
+        <div style="background-color: lightpink;">Div 2</div>
+        <div style="background-color: lightblue;">Div 1</div>
+    </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr ;
+        column-gap: 20px; row-gap: 10px;">
+        <div style="background-color: lightpink;">col 1</div>
+        <div style="background-color: lightpink;">col 2</div>
+        <div style="background-color: lightpink;">col 3</div>
+        <div style="background-color: lightpink;">col 4</div>
+        <div style="background-color: lightpink;">col 1</div>
+        <div style="background-color: lightpink;">col 2</div>
+        <div style="background-color: lightpink;">col 3</div>
+        <div style="background-color: lightpink;">col 4</div>
+    </div>
+</div>
+</body>
+</html>
